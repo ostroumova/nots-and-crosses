@@ -1,5 +1,6 @@
 import "./App.scss";
 import Board from "./components/Board";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 const App: React.FC = () => {
@@ -7,6 +8,7 @@ const App: React.FC = () => {
     <div className="app-container">
       <Header />
       <Board />
+      <Footer />
     </div>
   );
 };

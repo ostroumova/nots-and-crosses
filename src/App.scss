@@ -3,4 +3,6 @@
   padding: 20px;
   background-image: url(./assets/background.jpg);
   background-size: cover;
+  display: flex;
+  flex-direction: column;
 }
