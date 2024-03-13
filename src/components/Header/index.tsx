@@ -1,11 +1,19 @@
 import React from "react";
 import "./styles.scss";
 
-const Header: React.FC = () => {
+type HeaderProps = {
+  title: string;
+  subtitle: string;
+};
+
+const Header: React.FC<HeaderProps> = ({
+  title = "Noughts And Crosses",
+  subtitle = "Use your brain",
+}) => {
   return (
     <header>
-      <h1>Noughts And Crosses</h1>
-      <h3>Use your brain</h3>
+      <h1>{title}</h1>
+      <h3>{subtitle}</h3>
     </header>
   );
 };
