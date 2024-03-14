@@ -18,7 +18,8 @@
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
-    &:hover {
+    &:hover,
+    :focus {
       background-color: #e0e0e0;
     }
   }
