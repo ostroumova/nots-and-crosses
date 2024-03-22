@@ -6,10 +6,7 @@ type HeaderProps = {
   subtitle: string;
 };
 
-const Header: React.FC<HeaderProps> = ({
-  title = "Noughts And Crosses",
-  subtitle = "Use your brain",
-}) => {
+const Header: React.FC<HeaderProps> = ({ title, subtitle }) => {
   return (
     <header>
       <h1>{title}</h1>

@@ -1,11 +1,16 @@
 import React from "react";
 import "./styles.scss";
 
-const Footer: React.FC = () => {
+type FooterProps = {
+  copyrights: string;
+  date: string;
+};
+
+const Footer: React.FC<FooterProps> = ({ copyrights, date }) => {
   return (
     <footer>
-      <h4>© Noughts And Crosses</h4>
-      <p>Created 13 March 2024</p>
+      <h4>{copyrights}</h4>
+      <p>{date}</p>
     </footer>
   );
 };

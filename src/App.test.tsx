@@ -18,9 +18,7 @@ describe("App", () => {
   });
   test("renders footer component", () => {
     render(<App />);
-    const footerElement = screen.getByRole("contentinfo", {
-      name: "",
-    });
+    const footerElement = screen.getByRole("contentinfo");
     const footerText = screen.getByText("© Noughts And Crosses");
     expect(footerElement).toBeInTheDocument();
     expect(footerText).toBeInTheDocument();
