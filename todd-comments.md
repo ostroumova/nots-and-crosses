@@ -10,16 +10,43 @@ As a user, I can
 
 ### todd's comments:
 
-- In App.tsx you either need to pass your props to your header or make them optional in the props type.
-- Todd suggests - you don't set the header props with Noughts and Crosses defaults, rather just pass the props when you create the header in App.tsx. The idea here is that the Header can be used in future applications, so you might use it in Galina's Portfolio or in some new shopping site or wherever. In those contexts, it would be weird to have the title and subtitle defaulting to Noughts and Crosses. The idea is that you can just pull out the component and use it anywhere.
-- You probably shouldn't use an <h> tag for your footer text.
-- suggestion: you could make the footer reusable by passing the title and date in through the props just like you've done with the header.
-- I had an argument with Jon about functions that return jsx components and I think he'd probably prefer we didn't return jsx from functions. You could do your rows like this instead:
-<div className="board__row">{Array(3).map((item) => <button key={i} className="board__square"></button>)}</div>
-I'm still not sold on this myself and I need to look into it more, but it might be the way to go for now.
-- in your footer test, you don't need to pass empty string as name. You can just not bother putting in the second argument, e.g. const footerElement =
-  const footerElement = screen.getByRole("contentinfo");
-- also, for your footer text, rather than using getByText, you might be able to use toHaveTextContent("whatever you want") on the expect of your footerElement
-- I still don't think your squares are square on my screen. I'm wondering if this is because your board has no height? I'm thinking the width stretches to the max of 300px on my screen, but nothing tells the board what height it should be. You might want it like this though - I know nothing about css.
+1. So, it looks like you do have lint. I think Vite installs it at setup (or maybe you've installed everything I instelled - I'm not sure.)
 
-- No footer yet
+To run it, you can type 'npm run lint'. This command is set up in the scripts part of your package.json. Anything you can npm run will be in your 'scripts' - the key is the bit you type after run and the value is what gets run by npm in the command line.
+
+So in your scripts, the line:
+"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+means you can type:
+npm run lint
+And this will be exactly the same as you typing the following into your command line
+eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0
+
+2. You have a typo in your App.tsx - hearderSubtitle instead of header.
+
+3. "You probably shouldn't use an <h> tag for your footer text." - in your footer, you are using an <h4> tag for your copyrights. There probably shouldn't be any headings in the footer. Maybe put both parts in a <p> tag or a <span> tags.
+
+4. The fact you are automatically generating all 9 tiles on your board now I think is better. However, I'd warn you that I think the way you have it currently, you will get the following array:
+   [
+   [button, button, button],
+   [button, button, button],
+   [button, button, button]
+   ]
+   This might be what you want. Maybe it's even better than the way I did it in that you have a 2 point grid referencing system this way. I'm just writing this to make sure you're aware it's a nested array and not flat.
+
+5. "also, for your footer text, rather than using getByText, you might be able to use toHaveTextContent("whatever you want") on the expect of your footerElement". So rather than that getByText, just do the following on the footerElement you already got by role:
+   expect(footerElement).toHaveTextContent('© Noughts And Crosses');
+
+6. Another way of doing this:
+   expect(buttons.length).toBe(9);
+   is to do this:
+   expect(buttons).toHaveLength(9);
+
+7. Todd suggestion: My screen reader calls all 9 of your buttons 'button'. It could be worth giving them an aria-label so they are called something like "tile 0, 0", "tile 0, 1" etc. Better would be "top left tile", "top middle tile" etc., but I think even I've been too lazy to do that (so far).
+
+8. On my screen, your buttons are still not square. They're rectangles. You might want them like this though.
+
+As there isn't much there, here is the second deliverable:
+
+## Deliverable 2: Place First Piece
+
+As a user, I can place my first piece on the game board so I can see player 1's move.
