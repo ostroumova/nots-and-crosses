@@ -49,4 +49,9 @@ As there isn't much there, here is the second deliverable:
 
 ## Deliverable 2: Place First Piece
 
-As a user, I can place my first piece on the game board so I can see player 1's move.
+As a user, I can place my first piece on the game board so I can see player 1's move. I should be able to:
+
+1. See that it is Player 1's turn and some indication of the token (nought or cross) that I'm using.
+2. Place a piece on any of the board squares.
+
+At this point, we do not need to change the players turn and it's fine if you can fill up the board with the player's piece.
