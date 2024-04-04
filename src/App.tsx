@@ -5,13 +5,13 @@ import Header from "./components/Header";
 
 const App: React.FC = () => {
   const headerTitle = "Noughts And Crosses";
-  const hearderSubtitle = "Use your brain";
+  const heardeSubtitle = "Use your brain";
 
   const copyrights = "© Noughts And Crosses";
   const date = "Created 13 March 2024";
   return (
     <div className="app-container">
-      <Header title={headerTitle} subtitle={hearderSubtitle} />
+      <Header title={headerTitle} subtitle={heardeSubtitle} />
       <Board />
       <Footer copyrights={copyrights} date={date} />
     </div>

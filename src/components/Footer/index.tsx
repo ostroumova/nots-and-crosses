@@ -9,7 +9,7 @@ type FooterProps = {
 const Footer: React.FC<FooterProps> = ({ copyrights, date }) => {
   return (
     <footer>
-      <h4>{copyrights}</h4>
+      <p>{copyrights}</p>
       <p>{date}</p>
     </footer>
   );

@@ -19,13 +19,12 @@ describe("App", () => {
   test("renders footer component", () => {
     render(<App />);
     const footerElement = screen.getByRole("contentinfo");
-    const footerText = screen.getByText("© Noughts And Crosses");
-    expect(footerElement).toBeInTheDocument();
-    expect(footerText).toBeInTheDocument();
+    expect(footerElement).toHaveTextContent("© Noughts And Crosses");
   });
   test("renders game component", async () => {
+    s;
     render(<App />);
     const buttons = await screen.findAllByRole("button");
-    expect(buttons.length).toBe(9);
+    expect(buttons).toHaveLength(9);
   });
 });
