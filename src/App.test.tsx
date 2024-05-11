@@ -22,7 +22,6 @@ describe("App", () => {
     expect(footerElement).toHaveTextContent("© Noughts And Crosses");
   });
   test("renders game component", async () => {
-    s;
     render(<App />);
     const buttons = await screen.findAllByRole("button");
     expect(buttons).toHaveLength(9);
