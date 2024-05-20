@@ -2,14 +2,14 @@ import React from "react";
 import "./styles.scss";
 
 type FooterProps = {
-  copyrights: string;
+  copyright: string;
   date: string;
 };
 
-const Footer: React.FC<FooterProps> = ({ copyrights, date }) => {
+const Footer: React.FC<FooterProps> = ({ copyright, date }) => {
   return (
     <footer>
-      <p>{copyrights}</p>
+      <p>{copyright}</p>
       <p>{date}</p>
     </footer>
   );

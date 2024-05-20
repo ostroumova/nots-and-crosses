@@ -17,9 +17,6 @@ const Board: React.FC = () => {
 
   return (
     <div className="game">
-      <div className="game-info">
-        <div>Player One: {currentPlayer}</div>
-      </div>
       <div className="board">
         {Array(3)
           .fill(null)
