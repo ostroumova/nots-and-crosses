@@ -21,9 +21,9 @@ describe("App", () => {
     const footerElement = screen.getByRole("contentinfo");
     expect(footerElement).toHaveTextContent("© Noughts And Crosses");
   });
-  test("renders game component", async () => {
+  test("renders game component", () => {
     render(<App />);
-    const buttons = await screen.findAllByRole("button");
+    const buttons = screen.getAllByRole("button");
     expect(buttons).toHaveLength(9);
   });
 });

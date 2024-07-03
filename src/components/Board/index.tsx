@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./styles.scss";
+import BoardRow from "./BoardRow";
 
 const Board: React.FC = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const currentPlayer = "X";
 
-  const handleClick = (index: number) => {
+  const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
+    const index = Number(event.currentTarget.value);
     if (!board[index]) {
       setBoard((prevBoard) => {
         const newBoard = [...prevBoard];
@@ -18,26 +20,21 @@ const Board: React.FC = () => {
   return (
     <div className="game">
       <div className="board">
-        {Array(3)
-          .fill(null)
-          .map((_, rowIndex) => (
-            <div key={rowIndex} className="board__row">
-              {Array(3)
-                .fill(null)
-                .map((_, squareIndex) => {
-                  const index = rowIndex * 3 + squareIndex;
-                  return (
-                    <button
-                      key={squareIndex}
-                      className="board__square"
-                      onClick={() => handleClick(index)}
-                    >
-                      {board[index]}
-                    </button>
-                  );
-                })}
-            </div>
-          ))}
+        <BoardRow
+          rowIndex={0}
+          contents={board.slice(0, 3)}
+          handleClick={handleClick}
+        />
+        <BoardRow
+          rowIndex={1}
+          contents={board.slice(3, 6)}
+          handleClick={handleClick}
+        />
+        <BoardRow
+          rowIndex={2}
+          contents={board.slice(6, 9)}
+          handleClick={handleClick}
+        />
       </div>
     </div>
   );
