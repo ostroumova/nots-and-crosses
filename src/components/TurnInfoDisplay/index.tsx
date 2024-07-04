@@ -1,13 +1,12 @@
 import React from "react";
+import { Players } from "../../constants/players";
+import "./styles.scss";
 
 const TurnInfoDisplay: React.FC = () => {
-  const currentPlayer = "X";
-  const secondPlayer = "O";
-
   return (
     <div className="game-info">
-      <div>Player One: {currentPlayer}</div>
-      <div>Player Two: {secondPlayer}</div>
+      <h4>Player One: {Players.PlayerX}</h4>
+      <h4>Player Two: {Players.PlayerO}</h4>
     </div>
   );
 };
