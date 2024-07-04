@@ -14,4 +14,12 @@ describe("Board component", async () => {
     fireEvent.click(buttons[0]);
     expect(buttons[0]).toHaveTextContent("X");
   });
+  test("places a noughts or cross on the board one after the other", async () => {
+    render(<Board />);
+    const buttons = await screen.findAllByRole("button");
+    fireEvent.click(buttons[0]);
+    expect(buttons[0]).toHaveTextContent("X");
+    fireEvent.click(buttons[1]);
+    expect(buttons[1]).toHaveTextContent("O");
+  });
 });

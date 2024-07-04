@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "./styles.scss";
 import BoardRow from "./BoardRow";
+import { Players } from "../../constants/players";
 
 const Board: React.FC = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
-  const currentPlayer = "X";
+  const [currentPlayer, setCurrentPlayer] = useState(Players.PlayerX);
 
   const handleClick: React.MouseEventHandler<HTMLButtonElement> = (event) => {
     const index = Number(event.currentTarget.value);
@@ -14,6 +15,9 @@ const Board: React.FC = () => {
         newBoard[index] = currentPlayer;
         return newBoard;
       });
+      setCurrentPlayer(
+        currentPlayer === Players.PlayerX ? Players.PlayerO : Players.PlayerX
+      );
     }
   };
 
